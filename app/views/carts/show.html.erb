@@ -4,6 +4,7 @@
     <h1>My Cart</h1>
   </header>
 
+<% if enhanced_cart.length() > 0 %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -48,5 +49,10 @@
       <% end %>
     </div>
   </div>
+<% else %>
+
+  <h2>I'm empty! Add some things from our <a href="/">Home Page</a>.</h2>
+
+<% end %>
 
 </section>
