@@ -1,4 +1,11 @@
 class Admin::DashboardController < ApplicationController
   def show
+    @product_count = Product.count(:id)
+    @category_count = Category.count(:id)
   end
 end
+
+
+
+# @category = Category.find(params[:id])
+# @products = @category.products.order(created_at: :desc)
