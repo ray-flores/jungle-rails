@@ -30,11 +30,12 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
+        <li style="display: flex; background-color: #e4e4e4; border-radius: 4px; padding: 10px; margin-top: 5px">
           <% if current_user %>
-            Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+            <span >Signed in as <%= current_user.firstname %> | <%= link_to "Logout", '/logout' %>
           <% else %>
-            <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+            <span ><%= link_to 'Login', '/login' %> 
+            <span >| <%= link_to 'Signup', '/signup' %>
           <% end %>
         </li>
         <li class="dropdown">
