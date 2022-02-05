@@ -34,8 +34,7 @@
           <% if current_user %>
             <span >Signed in as <%= current_user.firstname %> | <%= link_to "Logout", '/logout' %>
           <% else %>
-            <span ><%= link_to 'Login', '/login' %> 
-            <span >| <%= link_to 'Signup', '/signup' %>
+            <span ><%= link_to 'Login', '/login' %> | <%= link_to 'Sign-up', '/signup' %></span>
           <% end %>
         </li>
         <li class="dropdown">
