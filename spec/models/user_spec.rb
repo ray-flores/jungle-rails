@@ -78,6 +78,25 @@ RSpec.describe User, type: :model do
       end
     end
 
+    context 'given a valid email with whitespace' do
+      it 'will return the user' do
+        @user = User.new(firstname: 'Ray', lastname: 'Flores', email: 'rflores@gmail.com', password: 'Jungle', password_confirmation: 'Jungle')
+        @user.save
+
+        expect(User.authenticate_with_credentials(' rflores@gmail.com  ', 'Jungle')).to eq(User.find_by(email: 'rflores@gmail.com'))
+      end
+    end
+
+    context 'given a valid email with different cases' do
+      it 'will return the user' do
+        @user = User.new(firstname: 'Ray', lastname: 'Flores', email: 'rflores@gmail.com', password: 'Jungle', password_confirmation: 'Jungle')
+        @user.save
+
+        expect(User.authenticate_with_credentials('rFLoREs@gmail.com', 'Jungle')).to eq(User.find_by(email: 'rflores@gmail.com'))
+      end
+    end
+
+
   end
 
 
