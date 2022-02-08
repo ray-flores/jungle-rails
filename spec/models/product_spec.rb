@@ -43,5 +43,15 @@ RSpec.describe Product, type: :model do
       end
     end
 
+    context 'given no category' do
+      it 'shows an error for a blank category field' do
+        @category = Category.new(name: 'Vehicles')
+        @product = Product.new(name: 'Toyota Camry', price: 50000, quantity: 1)
+        @product.save
+
+        expect(@product.errors.full_messages).to include("Category can't be blank")
+      end
+    end
+
   end
 end
