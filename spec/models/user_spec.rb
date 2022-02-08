@@ -65,8 +65,21 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("Lastname can't be blank")
       end
     end
+  end
 
+  describe '.authenticate_with_credentials' do
 
+    context 'given a valid email and password' do
+      it 'will return the user' do
+        @user = User.new(firstname: 'Ray', lastname: 'Flores', email: 'rflores@gmail.com', password: 'Jungle', password_confirmation: 'Jungle')
+        @user.save
+
+        expect(User.authenticate_with_credentials('rflores@gmail.com', 'Jungle')).to eq(User.find_by(email: 'rflores@gmail.com'))
+      end
+    end
 
   end
+
+
+
 end
