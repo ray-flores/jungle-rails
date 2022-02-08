@@ -19,6 +19,14 @@ RSpec.describe User, type: :model do
       end
     end
 
+    context 'given a password length less than 4' do
+      it 'will not save successfully' do
+        @user = User.new(firstname: 'Ray', lastname: 'Flores', email: 'hello@gmail.com', password: 'Tru', password_confirmation: 'Tru')
+
+        expect(@user).not_to be_valid
+      end
+    end
+
     context 'given an email that already exists in the database in a different case' do
       it 'will not save successfully' do
         @user1 = User.new(firstname: 'Ray', lastname: 'Flores', email: 'hello@gmail.com', password: 'Jungle', password_confirmation: 'Jungle')
@@ -31,7 +39,34 @@ RSpec.describe User, type: :model do
       end
     end
 
-    
+    context 'given no email' do
+      it 'will not save successfully' do
+        @user = User.new(firstname: 'Ray', lastname: 'Flores', password: 'Jungle', password_confirmation: 'Jungle')
+        @user.save
+
+        expect(@user.errors.full_messages).to include("Email can't be blank")
+      end
+    end
+
+    context 'given no firstname' do
+      it 'will not save successfully' do
+        @user = User.new(lastname: 'Flores', email: 'rflores@gmail.com', password: 'Jungle', password_confirmation: 'Jungle')
+        @user.save
+
+        expect(@user.errors.full_messages).to include("Firstname can't be blank")
+      end
+    end
+
+    context 'given no lastname' do
+      it 'will not save successfully' do
+        @user = User.new(firstname: 'Ray', email: 'rflores@gmail.com', password: 'Jungle', password_confirmation: 'Jungle')
+        @user.save
+
+        expect(@user.errors.full_messages).to include("Lastname can't be blank")
+      end
+    end
+
+
 
   end
 end
