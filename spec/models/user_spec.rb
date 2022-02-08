@@ -34,7 +34,7 @@ RSpec.describe User, type: :model do
 
         @user2 = User.new(firstname: 'Ray', lastname: 'Flores', email: 'HELLO@gmail.com', password: 'Jungle', password_confirmation: 'Jungle')
         @user2.save
-
+        
         expect(@user2.errors.full_messages).to include("Email has already been taken")
       end
     end
@@ -87,7 +87,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context 'given a valid email with different cases' do
+    context 'given a valid email with different cased letters' do
       it 'will return the user' do
         @user = User.new(firstname: 'Ray', lastname: 'Flores', email: 'rflores@gmail.com', password: 'Jungle', password_confirmation: 'Jungle')
         @user.save
@@ -98,7 +98,4 @@ RSpec.describe User, type: :model do
 
 
   end
-
-
-
 end
