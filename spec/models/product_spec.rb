@@ -4,10 +4,9 @@ RSpec.describe Product, type: :model do
   describe 'Validations' do
 
     context 'given all valid fields' do
-      it 'saves successfully' do
+      it 'will save successfully' do
         @category = Category.new(name: 'Vehicles')
         @product = Product.new(name: 'Toyota Camry', price: 50000, quantity: 1, category: @category)
-        @product.save
 
         expect(@product).to be_valid
       end
