@@ -95,7 +95,6 @@ RSpec.describe User, type: :model do
         expect(User.authenticate_with_credentials('rFLoREs@gmail.com', 'Jungle')).to eq(User.find_by(email: 'rflores@gmail.com'))
       end
     end
-
-
   end
+  
 end
