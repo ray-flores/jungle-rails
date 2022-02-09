@@ -36,3 +36,18 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## Screenshots
 
+Home Page
+
+!["Home Page"](https://github.com/ray-flores/jungle-rails/blob/master/docs/home-page.png?raw=true)
+
+Product Details 
+
+!["Product Details"](https://github.com/ray-flores/jungle-rails/blob/master/docs/product-details-page.png?raw=true)
+
+Admin Product Add/Delete
+
+!["Admin Product Add/Delete"](https://github.com/ray-flores/jungle-rails/blob/master/docs/admin-add-products.png?raw=true)
+
+My Cart 
+
+!["My Cart"](https://github.com/ray-flores/jungle-rails/blob/master/docs/my-cart-page.png?raw=true)
